@@ -1,0 +1,109 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 11, 2022
+ *      Author: pcc
+ */
+
+
+#include "STD_TYPES.h"
+#include "common_macros.h"
+
+#include "RCC_interface.h"
+#include "GPIO_interface.h"
+
+#include "LED_interface.h"
+#include "LED_config.h"
+
+#include "SEVENSEG_interface.h"
+
+#include "BUTTON_interface.h"
+#include "BUTTON_config.h"
+
+
+void main(void)
+{
+	/* Initialize Clock System */
+	RCC_voidInitSysClock();
+
+	/* Enable Periphral 2 on APB2 Bus (GPIOA) */
+	RCC_voidEnableClock(RCC_APB2, RCC_GPIOA);
+
+	/* Enable Periphral 2 on APB2 Bus (GPIOB) */
+	RCC_voidEnableClock(RCC_APB2, RCC_GPIOB);
+
+	/* Enable Periphral 2 on APB2 Bus (GPIOC) */
+	RCC_voidEnableClock(RCC_APB2, RCC_GPIOC);
+
+
+
+
+	//SEVENSEG_voidDisplay(COMMON_ANODE, 0);
+//	for(uint8 i = 0; i <= 15; i++)
+//	{
+//		LED_voidLedOff(GPIOA, i);
+//		LED_voidLedOff(GPIOB, i);
+//	}
+//
+//	LED_voidLedOn(GPIOC, PIN14);
+	uint16 n =50;
+	uint8 num = 0;
+	while(1)
+	{
+
+
+		if(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED)
+		{
+			for(uint16 i = 0; i < n; i++)
+			{
+				for(uint16 j = 0; j < n; j++)
+				{
+					asm("NOP");
+				}
+			}
+			if(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED)
+			{
+				LED_voidLedToggle(LED_PORT, LED_PIN);
+				if(num <= 9)
+				{
+					SEVENSEG_voidDisplay(COMMON_ANODE, num);
+					num++;
+				}
+				else
+				{
+					num = 0;
+				}
+			}
+
+		}while(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED) {}
+	}
+
+
+//		for(uint8 i = 0; i <= 15; i++)
+//		{
+//			GPIO_voidSetPinValue(GPIOC, i, LOGIC_HIGH);
+//			GPIO_voidSetPinValue(GPIOB, i, LOGIC_HIGH);
+//		}
+//
+//
+//		/* Set A0 as output high */
+//		GPIO_voidSetPinValue(GPIOA, PIN0, LOGIC_HIGH);
+//		/* Delay 500 ms */
+//		for(uint16 i = 0; i < w; i++)
+//		{
+//			for(uint16 j = 0; j < w; j++)
+//			{
+//				asm("NOP");
+//			}
+//		}
+//		GPIO_voidSetPinValue(GPIOA, PIN0, LOGIC_LOW);
+//		for(uint16 i = 0; i < w; i++)
+//		{
+//			for(uint16 j = 0; j < w; j++)
+//			{
+//				asm("NOP");
+//			}
+//		}
+	}
+
+

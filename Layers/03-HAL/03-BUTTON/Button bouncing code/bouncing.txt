@@ -1,0 +1,15 @@
+		if(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED)
+		{
+			for(uint16 i = 0; i < w; i++)
+			{
+				for(uint16 j = 0; j < w; j++)
+				{
+					asm("NOP");
+				}
+			}
+
+			if(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED)
+			{
+				LED_voidLedToggle(LED_PORT, LED_PIN);
+			}while(BUTTON_u8ReadStatus(BUTTON_PORT, BUTTON_PIN) == BUTTON_PRESSED) {}
+		}
