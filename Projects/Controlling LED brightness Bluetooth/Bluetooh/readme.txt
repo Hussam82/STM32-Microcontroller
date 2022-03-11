@@ -1,4 +1,5 @@
 This project uses 2 USARTs both are operated at 9600 baud rate:
+The USART is implemented by using Interrupt technique thorugh the callback functions
 
 ==> USART1 is connected to the PC by using USB TO TTL converter
 	By sending '5' it toggles the Green LED conneected at PC14
