@@ -77,6 +77,9 @@ void main(void)
 	/* Set A5 as input analog CH5 */
 	GPIO_voidSetPinDirection(GPIOA_ID, PIN5, INPUT_ANALOG);
 
+	/* Enable SysTick */
+	MSTK_voidInit();
+	
 	/* Enable ADC1 NVIC */
 	MNVIC_voidEnableInterrupt(18);
 
@@ -90,8 +93,8 @@ void main(void)
 	uint8 channels[2] = {0, 1};
 	MADC_voidReadMultipleChannels(channels);
 
-	/* CH4 with duty cycle of 20% and frequency of 2 KHz */
-	MSTK_voidInit();
+	
+	
 
 	LED_voidLedOn(GPIOC_ID, PIN14);
 	uint8 dutycycle1;
