@@ -2,11 +2,11 @@
  *
  * Module: Common - Platform Types Abstraction
  *
- * File Name: std_types.h
+ * File Name: STD_TYPES.h
  *
- * Description: types for AVR
+ * Description: types for ARM
  *
- * Author: Mohamed Tarek
+ * Author: Hussam Ali
  *
  *******************************************************************************/
 
