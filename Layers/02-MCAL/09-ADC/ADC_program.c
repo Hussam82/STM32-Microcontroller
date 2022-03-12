@@ -15,7 +15,7 @@
 #include "ADC_interface.h"
 #include "ADC_config.h"
 #include "ADC_private.h"
-#include "TIM_interface.h"
+#include "STK_interface.h"
 /* Will be removed later */
 #include "DMA_private.h"
 
