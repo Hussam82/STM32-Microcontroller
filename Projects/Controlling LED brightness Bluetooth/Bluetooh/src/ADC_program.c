@@ -16,7 +16,7 @@
 #include "ADC_interface.h"
 #include "ADC_config.h"
 #include "ADC_private.h"
-#include "TIM_interface.h"
+#include "STK_interface.h"
 /* Will be removed later */
 #include "DMA_private.h"
 
@@ -59,8 +59,8 @@ void MADC_voidReadChannel(uint8 copy_u8Channel)
 
 	/* Enable ADC Conversion */
 	SET_BIT(ADC1->CR2, 0);
-	//MTIM_voidInit();
-	MTIM_voidSetBusyWait(TIMER4, 1); /* Delay 1 ms */
+	MSTK_voidInit();
+	MSTK_voidSetBusyWait(1); /* Delay 1ms */
 	SET_BIT(ADC1->CR2, 0);
 
 	/* Set calibration and wait for it to finish */
@@ -130,8 +130,8 @@ void MADC_voidReadMultipleChannels(uint8 copy_u8Channel[])
 
 		/* Enable ADC Conversion */
 		SET_BIT(ADC1->CR2, 0);
-		//MTIM_voidInit();
-		MTIM_voidSetBusyWait(TIMER4, 1); /* Delay 1 ms */
+		MSTK_voidInit();
+		MSTK_voidSetBusyWait(1); /* Delay 1ms */
 		SET_BIT(ADC1->CR2, 0);
 
 		/* Set calibration and wait for it to finish */
