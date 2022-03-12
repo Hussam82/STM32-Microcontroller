@@ -2,11 +2,11 @@
  *
  * Module: Common - Macros
  *
- * File Name: Common_Macros.h
+ * File Name: common_macros.h
  *
  * Description: Commonly used Macros
  *
- * Author: Mohamed Tarek
+ * Author: Hussam Ali
  *
  *******************************************************************************/
 
