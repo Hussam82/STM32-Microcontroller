@@ -36,52 +36,8 @@
 
 #include "PWM_interface.h"
 
-static uint8 num = 0;
-static uint8 count = 0;
-//static uint8 flag = 0;
-void Delay(uint32 time_in_ms)
-{
-	for(uint16 i = 0; i < time_in_ms; i++)
-	{
-		for(uint16 j = 0; j < time_in_ms; j++)
-		{
-			asm("NOP");
-		}
-	}
-}
 
-void countSevenSegment(void)
-{
-	count++;
-	if(count <= 5 * 9)
-	{
-		if(num <= 9)
-		{
-			SEVENSEG_voidDisplay(COMMON_ANODE, num);
-			num++;
-		}
-		else
-		{
-			num = 0;
-		}
-	}
-	else if(count <= (5 * 9) + 16)
-	{
-		MSTK_voidSetIntervalPeriodic(1000,countSevenSegment);
-		LED_voidLedToggle(GPIOC_ID, PIN14);
-	}
-	else
-	{
-		count = 0;
-	}
-}
 
-void ToggleLed(void)
-{
-	LED_voidLedToggle(GPIOC_ID, PIN14);
-	//MSTK_voidSetBusyWait(1000);
-
-}
 
 
 
