@@ -59,8 +59,8 @@ void MADC_voidReadChannel(uint8 copy_u8Channel)
 
 	/* Enable ADC Conversion */
 	SET_BIT(ADC1->CR2, 0);
-	//MTIM_voidInit(TIMER4);
-	MTIM_voidSetBusyWait(TIMER4, 1); /* Delay 1 ms */
+	MSTK_voidInit();
+	MSTK_voidSetBusyWait(1); /* Delay 1ms */
 	SET_BIT(ADC1->CR2, 0);
 
 	/* Set calibration and wait for it to finish */
@@ -130,8 +130,8 @@ void MADC_voidReadMultipleChannels(uint8 copy_u8Channel[])
 
 		/* Enable ADC Conversion */
 		SET_BIT(ADC1->CR2, 0);
-		//MTIM_voidInit(TIMER4);
-		MTIM_voidSetBusyWait(TIMER4, 1); /* Delay 1 ms */
+		MSTK_voidInit();
+		MSTK_voidSetBusyWait(1); /* Delay 1ms */
 		SET_BIT(ADC1->CR2, 0);
 
 		/* Set calibration and wait for it to finish */
