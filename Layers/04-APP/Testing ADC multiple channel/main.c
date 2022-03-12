@@ -84,7 +84,7 @@ void main(void)
 	MNVIC_voidEnableInterrupt(18);
 
 	/* Initialize PWM */
-	MPWM_voidInit(4);
+	MPWM_voidInit(TIMER4, 4);
 
 	/* Initialize ADC */
 	MADC_voidInit();
