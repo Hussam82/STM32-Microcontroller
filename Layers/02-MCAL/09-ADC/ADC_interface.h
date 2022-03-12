@@ -7,7 +7,7 @@
 #ifndef ADC_INTERFACE_H_
 #define ADC_INTERFACE_H_
 
-/* WARNING===> YOU HAVE TO INITIALIZE TIMER4 FIRST BEFORE INITIALISING THE ADC */
+
 extern volatile uint16 ADC_u16ReadValue;
 extern volatile uint16 ADC_u16ReadValueArr[];
 
